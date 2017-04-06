@@ -1,0 +1,84 @@
+@(rookieCard: Form[Application.CardAdd], teams: java.util.List[Team], lookups: java.util.List[Lookup])
+
+@main(null) {
+	<script type="text/javascript">
+		$(document).ready(function(){		 
+			$('input[name=selectServices]').on('change', function() {
+				$('#services').val($('input[name=selectServices]:checked').map(function() {
+					return this.value;
+				}).get());
+			});
+		});
+	</script>
+	<section id="rookieCard">
+		<form class="formoid-solid-dark"
+			style="background-color: #FFFFFF; font-size: 14px; font-family: 'Trebuchet MS','Roboto', Arial, Helvetica, sans-serif; color: #34495E; max-width: 480px; min-width: 150px"
+			method="post" action="">
+			<div class="title">
+				<h2>Rookie Card</h2>
+			</div>
+			<div class="element-input">
+				<label class="title"><span class="required">*</span>Player Name:</label>
+				<div class="item-cont"><input class="large" type="text" name="name" required="required" placeholder="Enter the Player's Name..."/><span class="icon-place"></span></div>
+			</div>
+			<div class="element-select">
+				<label class="title"><span class="required">*</span>Position:</label>
+				<div class="item-cont">
+					<div class="large">
+						<span>
+							<select name="position" required="required">
+								<option selected="selected" value="" disabled="disabled">--- Select Position ---</option>
+								@for(lookup <- lookups) {
+									@if(lookup.lookuptype == "Position") {
+										<option value="@lookup.name">@lookup.name</option>
+									}
+								}	
+							</select>
+							<i></i><span class="icon-place"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="element-select">
+				<label class="title"><span class="required">*</span>Team:</label>
+				<div class="item-cont">
+					<div class="large">
+						<span>
+							<select name="team" required="required">
+								<option selected="selected" value="" disabled="disabled">--- Select Team ---</option>
+								@for(team <- teams) {
+									<option value="@team.name">@team.name</option>
+								}
+							</select>
+							<i></i><span class="icon-place"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="element-radio">
+				<label class="title">Select the Card Maker...<span class="required">*</span>Card Maker:</label>
+				@for(lookup <- lookups) {
+					@if(lookup.lookuptype == "Card Maker") {
+						<input type="radio" name="cardmaker" value="@lookup.name" required="required"/><span>@lookup.name</span></label>
+						<span class="clearfix"></span>
+					}
+				}
+			</div>
+			<div class="element-number">
+				<label class="title"><span class="required">*</span>Card Year:</label>
+				<div class="item-cont"><input class="large" type="text" min="0" max="5000" name="year" required="required" placeholder="Enter the Card Year..." value=""/><span class="icon-place"></span></div>
+			</div>
+			<div class="element-input">
+				@if(rookieCard.hasGlobalErrors) {
+					<span class="errorMessageDisplay" style="color: #d9534f;">@rookieCard.globalError.message</span>
+				}
+			</div>
+			<div class="submit">
+				<input type="submit" value="Submit" />
+				<a href="/" class="buttonCancel">@Messages("goback")</a>
+			</div>
+			<!-- This is needed for bottom shadow to appear... -->
+			<div></div>
+		</form>
+	</section>
+}

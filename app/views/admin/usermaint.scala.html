@@ -1,0 +1,58 @@
+@(loginForm: Form[Application.Login])
+
+@main(null) {
+
+
+<!-- ABOUT -->
+<section id="userMaintenance">
+
+	<!-- SERVICES -->
+	<div class="services_block padbot40" data-appear-top-offset="-200"
+		data-animated="fadeInUp">
+
+		<!-- CONTAINER -->
+		<div class="container">
+
+			<!-- ROW -->
+			<div class="row">
+				<div class="col-sm-3 margbot30">
+					<a class="services_item" href="/adduser">
+						<p>
+							<img src="@routes.Assets.at("/img/icon_Add_User2.png")"> <b>Add User</b>
+						</p> <span>Add new user...</span>
+					</a>
+				</div>
+				<div class="col-sm-3 margbot30">
+					<a class="services_item" href="/finduser">
+						<p>
+							<img src="@routes.Assets.at("/img/icon_Edit_User.png")"> <b>Edit User</b>
+						</p> <span>Locate and edit a user...</span>
+					</a>
+				</div>
+				<div class="col-sm-3 margbot30">
+					<a class="services_item" href="/finduser">
+						<p>
+							<img src="@routes.Assets.at("/img/icon_Delete_User.png")"> <b>Delete User</b>
+						</p> <span>Locate and delete a user...</span>
+					</a>
+				</div>
+				<div class="col-sm-3 margbot30">
+					<a class="services_item" href="/search">
+						<p>
+						<img src="@routes.Assets.at("/img/icon_Search_Records.png")"> <b>Search Records</b>
+						</p> <span>Search User Records...</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- //ROW -->
+	</div>
+	<!-- //CONTAINER -->
+	</div>
+	<!-- //SERVICES -->
+
+
+</section>
+<!-- //ABOUT -->
+
+}

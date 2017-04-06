@@ -1,0 +1,64 @@
+@(jsonString1: String, jsonString2: String, title1: String, title2: String)
+
+@main(null) {
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+		google.charts.setOnLoadCallback(drawChart1);
+		google.charts.setOnLoadCallback(drawChart2);
+		
+		function drawChart1() {
+			var jsonString = "@jsonString1";
+			var reportTitle = "@title1";
+			var newJSON = jsonString.replace(/&#x27;/g, '"');
+			console.log("newJSON1: " + newJSON);
+			
+			// Define the chart to be drawn.
+			var data = new google.visualization.DataTable(newJSON);
+			
+			// Set chart options
+			var options = {'title':reportTitle,
+		                  'width':500,
+		                  'height':400};
+		
+			// Instantiate and draw the chart.
+			var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
+			chart.draw(data, options);
+		}
+		
+		function drawChart2() {
+			var jsonString = "@jsonString2";
+			var reportTitle = "@title2";
+			var newJSON = jsonString.replace(/&#x27;/g, '"');
+			console.log("newJSON2: " + newJSON);
+			
+			// Define the chart to be drawn.
+			var data = new google.visualization.DataTable(newJSON);
+			
+			// Set chart options
+			var options = {'title':reportTitle,
+		                  'width':500,
+		                  'height':400};
+		
+			// Instantiate and draw the chart.
+			var chart = new google.visualization.BarChart(document.getElementById('myBarChart'));
+			chart.draw(data, options);
+		}
+	</script>
+	<section id="displayResults" style="padding: 30px;">
+		<div class="container">
+		<div class="row" style="padding-bottom: 16px">
+			<div class="col-md-4">
+				<div id="myPieChart"/>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div id="myBarChart"/>
+				</div>
+			</div>
+		</div>
+	</section>
+}

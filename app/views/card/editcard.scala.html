@@ -1,0 +1,124 @@
+@(rookieCard: Form[Application.CardAdd], card: Card, teams: java.util.List[Team], lookups: java.util.List[Lookup], auditTrail: java.util.List[CardAudit], allComments: java.util.List[Comment], user: User)
+
+@import java.text.SimpleDateFormat
+
+@main(null) {
+	<script type="text/javascript">
+		$(document).ready(function(){		 
+			$('input[name=selectServices]').on('change', function() {
+				$('#services').val($('input[name=selectServices]:checked').map(function() {
+					return this.value;
+				}).get());
+			});
+		});
+	</script>
+	<input type="hidden" name="uniquekey" id="uniquekey" value="@card.uniquekey" />
+	<section id="rookieCard">
+		<form class="formoid-solid-dark"
+			style="background-color: #FFFFFF; font-size: 14px; font-family: 'Trebuchet MS','Roboto', Arial, Helvetica, sans-serif; color: #34495E; max-width: 480px; min-width: 150px"
+			method="post" action="">
+			<div class="title">
+				<h2>Rookie Card</h2>
+			</div>
+			<div class="formSubtitle">
+				Player Info
+			</div>
+			<div class="element-input">
+				<label class="title"><span class="required">*</span>Player Name:</label>
+				<div class="item-cont"><input class="large" type="text" name="name" required="required" placeholder="Enter the Player's Name..." value="@card.name" /><span class="icon-place"></span></div>
+			</div>
+			<div class="element-select">
+				<label class="title"><span class="required">*</span>Position:</label>
+				<div class="item-cont">
+					<div class="large">
+						<span>
+							<select name="position" required="required">
+								<option selected="selected" value="" disabled="disabled">--- Select Position ---</option>
+								@for(lookup <- lookups) {
+									@if(lookup.lookuptype == "Position") {<option @if(lookup.name == card.position) {selected="selected"} value="@lookup.name">@lookup.name</option>}
+								}	
+							</select>
+							<i></i><span class="icon-place"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="element-select">
+				<label class="title"><span class="required">*</span>Team:</label>
+				<div class="item-cont">
+					<div class="large">
+						<span>
+							<select name="team" required="required">
+								<option selected="selected" value="" disabled="disabled">--- Select Team ---</option>
+								@for(team <- teams) {
+									{<option @if(team.name == card.team) {selected="selected"} value="@team.name">@team.name</option>}
+								}
+							</select>
+							<i></i><span class="icon-place"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="element-radio">
+				<label class="title"><span class="required">*</span>Card Maker:</label>
+				@for(lookup <- lookups) {
+					@if(lookup.lookuptype == "Card Maker") {
+						<input type="radio" name="cardmaker" value="@lookup.name" required="required" @if(lookup.name == card.cardmaker) {checked} /><span>@lookup.name</span></label>
+						<span class="clearfix"></span>
+					}
+				}
+			</div>
+			<div class="element-number">
+				<label class="title"><span class="required">*</span>Card Year:</label>
+				<div class="item-cont"><input class="large" type="text" min="0" max="5000" name="year" required="required" placeholder="Enter the Card Year..."  value="@card.year" /><span class="icon-place"></span></div>
+			</div>
+			<div class="formSubtitle">
+				Comments
+			</div>
+			<div class="element-input">
+				<span class="text-center"><button type="button" class="buttonCustomView" align="center" style="color: #FFFFFF;" data-toggle="modal" data-target="#modalComments">Add Comments</button></span>
+				<br><br>
+				@if(!allComments.isEmpty) {
+					<div class="modifiedSection" style="font-size: 12px;">
+						<table class="modifiedTable">
+							@for(comment <- allComments) {
+								<tr>
+									<td width="25%">@if(comment.datecreated != null){@(new SimpleDateFormat("MM/dd/yyyy hh:mm a").format(comment.datecreated))}</td>
+									<td width="25%">@comment.author</td>
+									<td width="50%">@comment.comment</td>
+								</tr>
+							}					
+						</table>
+					</div>
+				}
+			</div>
+			<div class="element-input">
+				@if(rookieCard.hasGlobalErrors) {
+					<span class="errorMessageDisplay" style="color: #d9534f;">@rookieCard.globalError.message</span>
+				}
+			</div>
+			<div class="submit">
+				<input type="submit" value="Submit" />
+				<a href="/" class="buttonCancel">@Messages("goback")</a>
+			</div>
+			@if(user.role.toString() == "2") {
+				<div class="submit">
+					<a href="javascript:deleteCard('@card.uniquekey')" class="buttonDelete" style="color: #FFFFFF;">Delete</a>
+				</div>
+			}
+			@if(!auditTrail.isEmpty) {
+				<div class="modifiedSection" style="font-size: 10px;">
+					<table class="modifiedTable">
+						@for(audit <- auditTrail) {
+							<tr>
+								<td>@audit.editor (@audit.editoremail) changed <b>@audit.fielddisplay</b> from <b>@audit.oldvalue</b> to <b>@audit.newvalue</b> on @audit.editdate.</td>
+							</tr>
+						}					
+					</table>
+				</div>
+			}
+			<!-- This is needed for bottom shadow to appear... -->
+			<div></div>
+		</form>
+	</section>
+}

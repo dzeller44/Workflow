@@ -1,0 +1,33 @@
+@(loginForm: Form[Application.Login])
+
+@main(null) {
+	<section id="adminMain">
+		<div class="services_block padbot40" data-appear-top-offset="-200">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4 margbot30">
+						<a class="services_item" href="/searchcards">
+							<p>
+								<img src="@routes.Assets.at("/img/icon_Search_Records.png")"> <b>All Cards</b>
+							</p> <span>Add/Edit/Delete/Search Cards...</span>
+						</a>
+					</div>
+					<div class="col-sm-4 margbot30">
+						<a class="services_item" href="/adminuser">
+							<p>
+								<img src="@routes.Assets.at("/img/icon_User_Maint.png")"> <b>User Maintenance</b>
+							</p> <span>Add/Edit/Delete User Records...</span>
+						</a>
+					</div>
+					<div class="col-sm-4 margbot30">
+						<a class="services_item" href="/tablemaint">
+							<p>
+								<img src="@routes.Assets.at("/img/icon_Export_Data.png")"> <b>Lookup/Table Maintenance</b>
+							</p> <span>Add/Edit Lookup Records...</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+}

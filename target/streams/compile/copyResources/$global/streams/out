@@ -1,0 +1,8 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\Workflow\conf\application.conf,C:\WebDev\workspace\Workflow\target\scala-2.11\classes\application.conf)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\Workflow\conf\evolutions,C:\WebDev\workspace\Workflow\target\scala-2.11\classes\evolutions)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\Workflow\conf\messages,C:\WebDev\workspace\Workflow\target\scala-2.11\classes\messages)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\Workflow\conf\play.plugins,C:\WebDev\workspace\Workflow\target\scala-2.11\classes\play.plugins)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\Workflow\conf\routes,C:\WebDev\workspace\Workflow\target\scala-2.11\classes\routes)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\Workflow\conf\evolutions\default,C:\WebDev\workspace\Workflow\target\scala-2.11\classes\evolutions\default)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\Workflow\conf\evolutions\default\1.sql,C:\WebDev\workspace\Workflow\target\scala-2.11\classes\evolutions\default\1.sql)[0m

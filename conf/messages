@@ -1,0 +1,125 @@
+title=Dan's Rookie Cards
+
+confirm=Confirmation
+email=Email
+fullname=Full Name
+goback=Go Back
+logout=Logout
+password=Password
+error.technical=Technical Error, please Retry
+validate=Validate
+reset=Reset
+cancel=Cancel
+submit=Submit
+
+email.principal.address=rookiecards@this.eml
+
+card.new.comment=New Rookie Card created
+
+account.not.validated.check.mail=Account not validated. Check your emails.
+account.successfully.validated=Account successfully validated
+account.settings.email.successful=Email successfully validated ({0})
+invalid.user.or.password=Invalid user or password
+youve.been.logged.out=You've been logged out
+error.sending.email=Error sending email
+error.sending.confirm.email=Error while sending confirmation mail
+error.email.already.exist=Email already exist
+error.account.already.validated=Account already validated
+error.unknown.email=Unknown email
+error.confirm=Confirmation failed
+error.expiredresetlink=This password reset has expired.
+error.expiredmaillink=This mail change has expired.
+
+account.settings.password=Click OK to receive instructions by mail.
+account.settings.email=Enter your new email address. Click OK to receive instructions on this new mail.
+account.exists=Already have an account?
+account.need=Need to register for an account?
+
+signin.signin=Sign In
+signin.your.email=Your email address
+signin.your.password=Your password
+
+forgot.password=Forgot password?
+forgot.emailOrPassword=Forgot email or password?
+forgot.email=Forgot email?
+
+signup.signup=Sign Up
+signup.successfull=Sign Up - Successful !
+signup.new=New ?
+signup.reset.password=Reset your password
+signup.generate.password=Generate a password
+signup.msg.created=You will receive a confirmation email soon. Check your email to activate your account.
+signup.msg.approval=Your account requires administrator approval. You will receive a confirmation email once approved.
+signup.valid.email=Invalid Email
+signup.email.confirmed=Success - your email has been confirmed and your account is activated.
+
+password.message=Password must be 8 characters, contain 1 UPPERCASE character, 1 lowercase character, 1 number, and 1 special character.
+password.pattern=(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$!%^&+=])(?=\\S+$).{8,}
+
+resetpassword=Reset Password
+resetpassword.mailsent=An email has been sent to reset your password.  Please check your inbox.
+resetpassword.success=Your password has been reset.
+resetpassword.new.password=Reset Your Password
+
+admin.default.password=P@ssword!4
+admin.newaccount.subject=Dan's Rookie Cards - New Admin Validate email
+admin.newaccount.message=You have been added as an Admin to BASE Central.  Please change your password.  <br> Click on this link : {0} to change your password.
+admin.newaccount.msg.created=The new Admin has been created successfully.  An email has been sent to the email that was entered.
+admin.delete.account=The User Account has been successfully deleted.
+admin.newuser.subject=Dan's Rookie Cards - You have been added
+admin.newuser.message=You have been added to Dan's Rookie Cards.  Please change your password.  <br> Click on this link : {0} to change your password.
+admin.newuser.msg.created=The new User has been created successfully.  An email has been sent to the email that was entered.
+admin.delete.card=The Rookie Card has been successfully deleted.
+
+card.save=The new Rookie Card has been saved successfully.
+card.updated=The Rookie Card has been updated successfully.
+
+lookup.newcreated=The new Lookup has been created successfully.
+lookup.save=The new Lookup Request has been saved successfully.
+lookup.updated=The Lookup has been updated successfully.
+
+user.account.updated=The User Account has been updated.
+
+search.user.bademail=The user does not exist.
+
+changemail.mailsent=A mail has been sent, please check your mail.
+
+mail.confirm.subject=Welcome to Dans Rookie Cards - Confirm your Account
+mail.confirm.message=Welcome to Dans Rookie Cards. <br> Click on this link : {0} to confirm your email.
+
+mail.welcome.subject=Welcome to Dans Rookie Cards
+mail.welcome.message=Welcome to Dans Rookie Cards. <br> Your account is validated. Enjoy !
+
+mail.contact.subject=Message from Dans Rookie Cards User
+mail.admin.address=dansrookiecards@this.eml
+
+mail.reset.ask.subject=Dan's Rookie Cards - New password
+# Cannot use You've unescaped here, as the single quote stops the {0}
+mail.reset.ask.message=You asked for your password to be reset.  <br> Click on this link : {0} to change your password.
+
+mail.change.ask.subject=Dan's Rookie Cards - Validate email
+mail.change.ask.message=You asked for your email to be changed.  <br> Click on this link : {0} to validate your email.
+
+mail.reset.fail.subject=Account Access Attempted
+mail.reset.fail.message=You (or someone else) entered this email address when trying to change the password.  However, this email address is not on our list of registered users, and so the attempted password reset has failed.
+
+mail.reset.confirm.subject=Dan's Rookie Cards - New password
+mail.reset.confirm.message=Hello, <br><br> Your password has been reset.
+
+mail.newcard.subject=A new Rookie Card has been entered
+mail.newcard.message=A new Rookie Card has been entered.  You can view this card by using this link: {0}
+
+mail.newcomment.subject=New Comment on this record: {0}
+mail.newcomment.message=A new Comment has been added to this record.<br><br>Author: {0}<br>Date: {1}<br>Comment: {2}<br><br>Please click on the link below to review this request:<br><br>{3}
+
+# Workflow Messages...
+workflow.appProfile.new.auditRecord=New Application Profile created
+workflow.appProfile.created=The new Application Profile has been successfully saved.
+workflow.appProfile.updated=The Application Profile has been updated successfully.
+
+workflow.appProfile.fieldchanged={0} ({1}) changed {2} from {3} to {4} on {5}.
+
+workflow.routingProfile.new.auditRecord=New Routing Profile created
+workflow.routingProfile.created=The new Routing Profile has been successfully saved.
+workflow.routingProfile.updated=The Routing Profile has been updated successfully.
+

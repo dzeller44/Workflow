@@ -1,0 +1,28 @@
+@(downloadLocation: String, userRole: String)
+
+@main(null) {
+
+<section id="exportLocation">
+	<form id="showuser" class="formoid-solid-dark"
+		style="background-color: #FFFFFF; font-size: 14px; font-family: 'Trebuchet MS', 'Roboto', Arial, Helvetica, sans-serif; color: #34495E; max-width: 480px; min-width: 150px"
+		method="post" action="@routes.Application.exportOpenFile(downloadLocation)">
+		<div class="title">
+			<h2>Export Data Location</h2>
+		</div>
+		<div class="element-input">
+			<label class="title"><span></span>Your export file has been saved to the location below.</label>
+		</div>	
+		<div class="element-input">
+			<label class="title">@downloadLocation</label>
+		</div>				
+		<div class="submit">
+			<input type="submit" value="Open File" />
+			<a href="/@userRole" class="buttonCancel">@Messages("goback")</a>
+		</div>
+		<!-- This is needed for bottom shadow to appear... -->
+		<div></div>
+	</form>
+
+</section>
+
+}

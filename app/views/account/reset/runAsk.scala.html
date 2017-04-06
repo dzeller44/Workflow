@@ -1,0 +1,28 @@
+@import helper._
+@implicitFieldConstructor = @{
+    FieldConstructor(twitterBootstrapInput.render)
+}
+
+@main() {
+
+<section id="resetPasswordSuccesss">
+	<!-- Start Formoid form-->
+	<form class="formoid-solid-dark"
+		style="background-color: #FFFFFF; font-size: 14px; font-family: 'Trebuchet MS', 'Roboto', Arial, Helvetica, sans-serif; color: #34495E; max-width: 480px; min-width: 150px"
+		method="post" action="">
+		<div class="title">
+			<h2>@Messages("resetpassword")</h2>
+		</div>
+		<div class="element-input">
+			<label class="title"><span></span>@Messages("resetpassword.mailsent")</label>
+		</div>
+		<div class="submit">
+			<a href="/" class="buttonCancel">@Messages("goback")</a>
+		</div>
+		<!-- This is needed for bottom shadow to appear... -->
+		<div></div>
+	</form>
+
+</section>
+
+}

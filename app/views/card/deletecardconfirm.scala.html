@@ -1,0 +1,30 @@
+@(card: Card)
+
+@main(null) {
+	<section id="deleteCardConfirm">
+		<!-- Start Formoid form-->
+		<form id="showuser" class="formoid-solid-dark"
+			style="background-color: #FFFFFF; font-size: 14px; font-family: 'Trebuchet MS', 'Roboto', Arial, Helvetica, sans-serif; color: #34495E; max-width: 480px; min-width: 150px"
+			method="post" action="">
+			<div class="title">
+				<h2>Delete User</h2>
+			</div>
+			<div class="element-input">
+				<label class="title">Player Name:</label>
+				<div class="item-cont">
+					<input class="large" type="email" name="email" readonly style="color: #a9a9a9;" 
+						placeholder="Player Name" value="@card.name" /><span class="icon-place"></span>
+				</div>
+			</div>
+			<div class="element-input">
+				<label class="title"><span class="required"></span>The Rookie Card for @card.name will be deleted.  Please click Delete below to continue or Cancel to stop this process.</label>
+			</div>
+			<div class="submit">
+				<input type="submit" class="deleteButton" style="color: #FFFFFF;" value="Delete" />
+				<a href="/" class="buttonCancel">@Messages("goback")</a>
+			</div>
+			<!-- This is needed for bottom shadow to appear... -->
+			<div></div>
+		</form>
+	</section>
+}

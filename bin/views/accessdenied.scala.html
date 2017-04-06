@@ -1,0 +1,24 @@
+@(userRole: String)
+
+@main(null) {
+
+<section id="accessDenied">
+	<form id="showuser" class="formoid-solid-dark"
+		style="background-color: #FFFFFF; font-size: 14px; font-family: 'Trebuchet MS', 'Roboto', Arial, Helvetica, sans-serif; color: #34495E; max-width: 480px; min-width: 150px"
+		method="post" action="">
+		<div class="title">
+			<h2>Access Denied</h2>
+		</div>
+		<div class="element-input">
+			<label class="title"><span></span>Access has been denied to this page.  You do not have the correct access level.</label>
+		</div>					
+		<div class="submit">
+			<div><a href="/" class="buttonCustom" style="color: #FFFFFF;">Continue</a></div>
+		</div>
+		<!-- This is needed for bottom shadow to appear... -->
+		<div></div>
+	</form>
+
+</section>
+
+}

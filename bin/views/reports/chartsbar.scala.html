@@ -1,0 +1,51 @@
+@(jsonString: String, title: String)
+
+@main(null) {
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript">
+			google.charts.load('current', {
+				packages : [ 'corechart' ]
+			});
+			google.charts.setOnLoadCallback(drawChart);
+			
+			function drawChart() {
+				var jsonString = "@jsonString";
+				var reportTitle = "@title";
+				var newJSON = jsonString.replace(/&#x27;/g, '"');
+				console.log("newJSON: " + newJSON);
+				
+				// Define the chart to be drawn.
+				var data = new google.visualization.DataTable(newJSON);
+				
+				// Set chart options
+				var options = {'title':reportTitle,
+                     'width':1200,
+                     'height':2400};
+
+				// Instantiate and draw the chart.
+				var chart = new google.visualization.BarChart(document.getElementById('myPieChart'));
+				
+				function selectHandler() {
+		        var selectedItem = chart.getSelection()[0];
+			        if (selectedItem) {
+			          var topping = data.getValue(selectedItem.row, 0);
+			          alert('The user selected ' + topping);
+					}
+				}
+		
+				google.visualization.events.addListener(chart, 'select', selectHandler);	
+				
+				chart.draw(data, options);
+			}
+		</script>
+	<section id="displayResults" style="padding: 30px;">
+	<div class="container">
+			<div class="row" style="padding-bottom: 16px">
+				<div class="col-md-4">
+				<div id="myPieChart"/>
+				</div>
+				</div>
+				</div>	
+	</section>
+}

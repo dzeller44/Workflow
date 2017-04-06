@@ -1,0 +1,55 @@
+
+@main(null) {
+
+<section id="signup">
+	<!-- Start Formoid form-->
+	<form class="formoid-solid-dark"
+		style="background-color: #FFFFFF; font-size: 14px; font-family: 'Trebuchet MS', 'Roboto', Arial, Helvetica, sans-serif; color: #34495E; max-width: 480px; min-width: 150px"
+		method="post" action="">
+		<div class="title">
+			<h2>User Maintenance</h2>
+		</div>
+		<div class="element-input">
+			<label class="title"><span class="required">*</span>User
+				Name:</label>
+			<div class="item-cont">
+				<input class="large" type="text" name="fullname" required="required"
+					placeholder="Choose a user name..." /><span class="icon-place"></span>
+			</div>
+		</div>
+		<div class="element-input">
+			<label class="title">Email:</label>
+			<div class="item-cont">
+				<input class="large" type="email" name="email" readonly style="color: #dddddd;" 
+					placeholder="Enter your email..." /><span class="icon-place"></span>
+			</div>
+		</div>
+		<div class="element-select">
+			<label class="title"><span class="required">*</span>Account
+			Role:</label>
+			<div class="item-cont">
+				<div class="large">
+					<span>
+						<select name="role" required="required">
+
+							<option value="none">Select Role...</option>
+							<option value="user" selected>Business User</option>
+							<option value="manager">Emergency Manager</option>
+						
+						</select>
+						<i></i><span class="icon-place"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="submit">
+			<a href="/updateuser" class="buttonCustom" style="color: #FFFFFF;">@Messages("submit")</a>
+			<a href="/" class="buttonCancel">@Messages("goback")</a>
+		</div>
+		<!-- This is needed for bottom shadow to appear... -->
+		<div></div>
+	</form>
+
+</section>
+
+}

@@ -1,0 +1,80 @@
+@(resetForm: Form[controllers.account.Reset.ResetForm], token: String)
+
+@import helper._
+    @implicitFieldConstructor = @{
+        FieldConstructor(twitterBootstrapInput.render)
+    }
+
+@main(null) {
+	<script src="@routes.Assets.at("js/jquery/jquery-latest.js")" type="text/javascript"></script>
+	<script>
+	
+		jQuery(function(){
+        $("#submit").click(function(){
+        $(".error").hide();
+        var hasError = false;
+        var passwordVal = $("#password").val();
+        var checkVal = $("#password-check").val();
+        if (passwordVal == '') {
+            $("#password").after('<span class="error">Please enter a password.</span>');
+            hasError = true;
+        } else if (checkVal == '') {
+            $("#password-check").after('<span class="error">Please re-enter your password.</span>');
+            hasError = true;
+        } else if (passwordVal != checkVal ) {
+            $("#password-check").after('<span class="error">Passwords do not match.</span>');
+            hasError = true;
+        }
+        if(hasError == true) {return false;}
+    		});
+		});
+
+	</script>
+
+
+	<section id="resetPasswordChange">
+		<!-- Start Formoid form-->
+		<form class="formoid-solid-dark"
+			style="background-color: #FFFFFF; font-size: 14px; font-family: 'Trebuchet MS', 'Roboto', Arial, Helvetica, sans-serif; color: #34495E; max-width: 480px; min-width: 150px"
+			method="post" action="">
+			<div class="title">
+				<h2>@Messages("resetpassword.new.password")</h2>
+			</div>
+			
+			
+		<div class="element-password">
+			<label class="title"><span class="required">*</span>Password:</label>
+			<div class="item-cont">
+				<input class="large" type="password" name="password" id="password" value=""
+					required="required" placeholder="Enter your password..." /><span
+					class="icon-place"></span>
+			</div>
+		</div>
+		
+		<div class="element-password">
+	         <label class="title"><span class="required">*</span>Re-enter Password:</label>
+	         <div class="item-cont">
+	            <input class="large" type="password" name="password-check" id="password-check" value=""
+	               required="required" placeholder="Re-enter password..." /><span
+	               class="icon-place"></span>
+	         </div>
+	      </div>
+		
+		<div class="element-input">
+		    @if(resetForm.hasGlobalErrors) {
+        		<span class="errorMessageDisplay" style="color: #d9534f;">
+            		@resetForm.globalError.message
+        		</span>
+   			}
+		</div>
+			<div class="submit">
+				<input type="submit" value="@Messages("validate")" id="submit"/>
+				<a href="/" class="buttonCancel">@Messages("goback")</a>
+			</div>
+			<!-- This is needed for bottom shadow to appear... -->
+			<div></div>
+		</form>
+
+	</section>
+
+}

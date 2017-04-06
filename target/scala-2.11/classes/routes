@@ -1,0 +1,125 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET    /                              controllers.Application.index()
+
+POST   /login                         controllers.Application.authenticate()
+GET    /logout                        controllers.Application.logout()
+
+GET    /contact                       controllers.Application.contact()
+POST   /contact                       controllers.Application.contactSend()
+
+# Authenticates/Logins the user...
+GET    /auth                          controllers.Application.openLogin()
+POST   /auth                          controllers.Application.authenticate()
+
+GET    /accessdenied                  controllers.Application.accessDenied()
+
+# User pages...
+GET    /addcard                       controllers.Application.addCard()
+POST   /addcard                       controllers.Application.saveCard()
+
+GET    /searchcards                   controllers.Application.searchCards()
+
+GET    /user                          controllers.Application.userHome()
+
+GET    /filtersearch                  controllers.Application.filterCardSearch(type: String, value: String)
+
+GET    /mainsearch/:searchText        controllers.Application.searchAllCards(searchText: String)
+
+GET    /opencard/:cardkey             controllers.Application.openCard(cardkey: String)
+POST   /opencard/:cardkey             controllers.Application.updateCard(cardkey: String)
+
+GET    /addcomments                   controllers.Application.addComments(uniquekey: String, comment: String)
+
+GET    /reports/:reportType           controllers.Application.reportsCreate(reportType: String)
+
+GET    /useraccount                   controllers.Application.openUserAccount(email: String)
+POST   /useraccount                   controllers.Application.updateUserAccount()
+
+# Admin pages...
+GET    /admin                         controllers.Application.adminHome()
+
+GET    /adduser                       controllers.account.Signup.createUser()
+POST   /adduser                       controllers.account.Signup.saveUser()
+
+GET    /tablemaint                    controllers.Application.lookupMaintenance()
+
+GET    /adminuser                     controllers.Application.userMaintenance()
+
+GET    /search                        controllers.Application.getAllUsers()
+
+GET    /deletecard/:cardkey           controllers.Application.deleteCardConfirm(cardkey: String)
+POST   /deletecard/:cardkey           controllers.Application.deleteCard(cardkey: String)
+
+GET    /finduser                      controllers.Application.findUser()
+POST   /finduser                      controllers.Application.getUserByEmailWildcard()
+
+POST   /updateuser                    controllers.Application.updateUser()
+
+GET    /exportusers/:data             controllers.Application.exportUsers(data: String)
+
+POST   /exportOpenFile/:fileName      controllers.Application.exportOpenFile(fileName: String)
+
+GET    /openuser                      controllers.Application.openUser()
+
+GET    /addlookup                     controllers.Application.addLookup()
+POST   /addlookup                     controllers.Application.saveLookup()
+
+GET    /openlookup/:lookupkey         controllers.Application.openLookup(lookupkey: String)
+POST   /openlookup/:lookupkey         controllers.Application.updateLookup(lookupkey: String)
+
+GET    /filterlookups                 controllers.Application.filterLookups(type: String, value: String)
+
+GET    /deleteuser/:userkey           controllers.Application.deleteUserConfirm(userkey: String)
+POST   /deleteuser/:userkey           controllers.Application.deleteUser(userkey: String)
+
+GET    /resetuser/:token              controllers.account.Reset.resetUser(token:String)
+POST   /resetuser/:token              controllers.account.Reset.runResetUser(token:String)
+
+GET    /initkeys                      controllers.Application.initializeRecordUniqueKeys()
+
+# User settings...
+GET    /settings                      controllers.account.settings.Index.index()
+GET    /settings/password             controllers.account.settings.Password.index()
+POST   /settings/password             controllers.account.settings.Password.runPassword()
+GET    /settings/email                controllers.account.settings.Email.index()
+POST   /settings/email                controllers.account.settings.Email.runEmail()
+
+# Registers the user, sending an email to confirm the account.
+GET    /signup                        controllers.account.Signup.create()
+POST   /signup                        controllers.account.Signup.save()
+
+# Accessed when the user confirms the registration.
+GET    /confirm/:confirmToken         controllers.account.Signup.confirm(confirmToken:String)
+
+# Displays a page to send a reset email given the user's email.
+GET    /reset/ask                     controllers.account.Reset.ask()
+POST   /reset/ask                     controllers.account.Reset.runAsk()
+
+# Resets the password using the password.
+GET    /reset/:token                  controllers.account.Reset.reset(token:String)
+POST   /reset/:token                  controllers.account.Reset.runReset(token:String)
+
+GET    /email/:token                  controllers.account.settings.Email.validateEmail(token:String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET    /assets/*file                  controllers.Assets.at(path="/public", file)
+
+# Workflow Routes
+GET    /wkflwaddprofile               controllers.workflow.ApplicationProfile.addProfile()
+POST   /wkflwaddprofile               controllers.workflow.ApplicationProfile.saveProfile()
+
+GET    /wkflwviewprofiles             controllers.workflow.ApplicationProfile.viewProfiles()
+
+GET    /wkflwaccessdenied             controllers.workflow.ApplicationProfile.accessDenied()
+
+GET    /wkflwinitkeys                 controllers.workflow.ApplicationProfile.initializeRecordUniqueKeys()
+
+GET    /wkflwfilterview               controllers.workflow.ApplicationProfile.filterView(type: String, value: String)
+
+GET    /wkflwopenprofile/:recordkey   controllers.workflow.ApplicationProfile.openProfile(recordkey: String)
+POST   /wkflwopenprofile/:recordkey   controllers.workflow.ApplicationProfile.updateProfile(recordkey: String)
+

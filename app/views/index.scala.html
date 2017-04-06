@@ -1,0 +1,40 @@
+@(signupForm: Form[Application.Register], loginForm: Form[Application.Login])
+
+@main(null) {
+	<section id="indexPage">
+		<div class="container">
+			<h2><b>Welcome to Dan's Rookie Cards</h2>
+			<div class="testimonials" data-appear-top-offset="-200" data-animated="fadeInUp">
+				<br><br>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-4 margbot30">
+							<a class="services_item" href="/signup">
+								<p>
+									<img src="@routes.Assets.at("/img/icon_Add_User.png")"> <b>Create New Account</b>
+								</p>
+								<span>Register for an account...</span>
+							</a>
+						</div>
+						<div class="col-sm-4 margbot30">
+							<a class="services_item" href="/auth">
+								<p>
+									<img src="@routes.Assets.at("/img/icon_Sign_In.png")"> <b>Sign In</b>
+								</p>
+								<span>Existing users log in here...</span>
+							</a>
+						</div>
+						<div class="col-sm-4 margbot30">
+							<a class="services_item" href="/reset/ask">
+								<p>
+									<img src="@routes.Assets.at("/img/icon_Forgot_Password.png")"> <b>Forgot Password?</b>
+								</p>
+								<span>Reset your password...</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+}
